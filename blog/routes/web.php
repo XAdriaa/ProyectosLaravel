@@ -8,12 +8,13 @@ Route::get('/', function () {
 ;
 
 Route::get('/posts',function () {
-    return "Bienvenido a posts";
-})->name('posts_listado')
+    return view('posts/listado');
+})->name('posts_listado')   //Definir nombre para asi poder llamarlo por blade en otras paginas y no poner un enlace HTML si no uno en 
 ;
 
 Route::get('/posts/{id}', function($id){
-    return "FIcha de posts numero: " . $id;
-})-> Where('id', "[0-9]+")
+    return view('posts/ficha',['id' => $id]); //Pasar los datos por vista es en el return view si no da error
+})
+-> Where('id', "[0-9]+")
 ->name('posts_ficha')
 ;
