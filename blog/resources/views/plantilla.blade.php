@@ -1,19 +1,14 @@
-<?php
 
-
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/app.css">
+    <script type="text/javascript" src="/js/app.js"></script>
     <title>@yield('titulo')</title>
 </head>
 <body>
-    <nav>
-        <a href="{{route('inicio')}}"></a>
-        <a href="{{route('posts_listado')}}"></a>
-    </nav>
     @yield('contenido')
 </body>
 </html>

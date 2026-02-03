@@ -8,9 +8,9 @@
     <title>navegacion</title>
 </head>
 <body>
-    <nav>
-        <a href="{{route('inicio')}}"></a>
-        <a href="{{route('posts_listado')}}"></a>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="{{route('inicio')}}"></a>
+        <a class="navbar-brand" href="{{route('posts_listado')}}"></a>
     </nav>
 </body>
 </html>
