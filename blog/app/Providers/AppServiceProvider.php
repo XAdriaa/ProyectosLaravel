@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -17,8 +17,12 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
-        //
-    }
+    public function boot()
+{
+    // Si ya hay código aquí, déjalo y añade esto después:
+    Route::resourceVerbs([
+        'create' => 'crear',
+        'edit' => 'editar'
+    ]);
+}
 }

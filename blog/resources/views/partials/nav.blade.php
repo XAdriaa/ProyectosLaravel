@@ -8,9 +8,14 @@
     <title>navegacion</title>
 </head>
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="{{route('inicio')}}">inicio</a>
-        <a class="navbar-brand" href="{{route('posts_listado')}}">Listado de posts</a>
-    </nav>
+    <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center">
+            <a class="navbar-brand text-light mr-4" href="{{ route('inicio') }}">Inicio</a>
+            <a class="nav-link text-light mx-3" href="{{ route('posts.index') }}">Posts</a>
+            <a class="nav-link text-light mx-3" href="{{ route('posts.create') }}">Crear</a>
+        </div>
+    </div>
+</nav>
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,6 +9,11 @@
 </head>
 <body>
     @include('partials.nav')
+    
+    <div style="text-align: right; padding: 10px 20px; background-color: #f8f9fa;">
+        <small>{{ fechaActual('d/m/Y') }}</small>
+    </div>
+    
     <main>
         @yield('contenido')
     </main>
