@@ -3,48 +3,82 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostController extends Controller
 {
-    // index() - muestra el listado
+    // Listado paginado
     public function index()
     {
-        return view('posts.index'); // Usará tu vista renombrada
+        $posts = Post::orderBy('titulo', 'asc')->paginate(5);
+        return view('posts.index', compact('posts'));
     }
 
-    // create() - formulario de creación (texto plano por ahora)
+    // Redirige
     public function create()
     {
         return redirect()->route('inicio');
     }
 
-    // store() - guardar nuevo post (vacío por ahora)
+    // Vacío por ahora
     public function store(Request $request)
     {
         //
     }
 
-    // show() - mostrar ficha de un post
+    // Ficha de post
     public function show($id)
     {
-        return view('posts.show', compact('id')); // Usará tu vista renombrada
+        $post = Post::findOrFail($id);
+        return view('posts.show', compact('post'));
     }
 
-    // edit() - formulario de edición (texto plano por ahora)
+    // Redirige
     public function edit($id)
     {
-        return  redirect()->route('inicio');
+        return redirect()->route('inicio');
     }
 
-    // update() - actualizar post (vacío por ahora)
+    // Vacío por ahora
     public function update(Request $request, $id)
     {
         //
     }
 
-    // destroy() - eliminar post (vacío por ahora)
+    // Eliminar post
     public function destroy($id)
     {
-        //
+        Post::findOrFail($id)->delete();
+        return redirect()->route('posts.index')
+            ->with('mensaje', 'Post eliminado correctamente');
+    }
+
+    // EXTRA: Crear post de prueba
+    public function nuevoPrueba()
+    {
+        $numero = rand(1, 1000);
+        
+        Post::create([
+            'titulo' => "Título " . $numero,
+            'contenido' => "Contenido del post número " . $numero
+        ]);
+        
+        return redirect()->route('posts.index')
+            ->with('mensaje', 'Post de prueba creado: Título ' . $numero);
+    }
+
+    // EXTRA: Editar post de prueba
+    public function editarPrueba($id)
+    {
+        $post = Post::findOrFail($id);
+        $numero = rand(1001, 2000);
+        
+        $post->update([
+            'titulo' => "Título editado " . $numero,
+            'contenido' => "Contenido editado " . $numero
+        ]);
+        
+        return redirect()->route('posts.index')
+            ->with('mensaje', 'Post editado: Título editado ' . $numero);
     }
 }

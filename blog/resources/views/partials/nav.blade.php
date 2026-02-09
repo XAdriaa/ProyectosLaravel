@@ -13,9 +13,9 @@
         <div class="d-flex align-items-center">
             <a class="navbar-brand text-light mr-4" href="{{ route('inicio') }}">Inicio</a>
             <a class="nav-link text-light mx-3" href="{{ route('posts.index') }}">Posts</a>
-            <a class="nav-link text-light mx-3" href="{{ route('posts.create') }}">Crear</a>
+            <a class="nav-link text-light mx-3" href="{{ route('posts.nuevo.prueba') }}">Nuevo Post</a>
         </div>
     </div>
-</nav>
+    </nav>
 </body>
 </html>
