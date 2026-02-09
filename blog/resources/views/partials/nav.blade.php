@@ -9,8 +9,8 @@
 </head>
 <body>
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="{{route('inicio')}}"></a>
-        <a class="navbar-brand" href="{{route('posts_listado')}}"></a>
+        <a class="navbar-brand" href="{{route('inicio')}}">inicio</a>
+        <a class="navbar-brand" href="{{route('posts_listado')}}">Listado de posts</a>
     </nav>
 </body>
 </html>

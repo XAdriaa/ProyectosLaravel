@@ -9,6 +9,9 @@
     <title>@yield('titulo')</title>
 </head>
 <body>
-    @yield('contenido')
+    @include('partials.nav')
+    <main>
+        @yield('contenido')
+    </main>
 </body>
 </html>
